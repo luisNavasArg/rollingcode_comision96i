@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./index.html">Tablas</a>
+                </li>
+                <li>
+                    <a href="./formularios.html" target="_blank">Formularios</a>
+                </li>
+            </ul>
+        </nav>
+        <h1>Tablas y formularios</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Estructura del formulario</h2>
+            <article>
+                <h2>Elementos del formulario</h2>
+                <ul>
+                    <!-- etiqueta principal -->
+                    <li>form</li>
+                    <!-- agrupamos dos elemntos -->
+                    <li>div</li>
+                    <!-- etiqueta de texto -->
+                    <li>label</li>
+                    <!-- etiqueta de entrada de texto -->
+                    <li>input</li>
+                    <!-- Botón para enviar los datos -->
+                    <li>input</li>
+                </ul>
+            </article>
+            <article>
+                <h2>Ejemplo de formulario de registro</h2>
+                <!-- action es donde vamos a envíar los datos del form -->
+                <!-- por defecto el método del formulario es de tipo get-->
+                <!-- query string ?usuario=luisNavasArg&email=lpipnavas%40gmail.com&password=123456-->
+                <form action="./resgistro.html" method="get">
+                    <div>
+                        <label for="usuario">usuario</label>
+                        <!-- tipo de input  nombre para la query string relacionar el label con el input -->
+                        <input type="text" name="usuario" id="usuario" required>
+                    </div>
+                    <div>
+                        <label for="email">correo</label>
+                        <!-- required para evitar envíar campos vacíos -->
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div>
+                        <label for="password">contraseña</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    <div>
+                        <label for="telefono">teléfono</label>
+                        <input type="tel" name="telefono" id="telefono" required>
+                    </div>
+                    <div>
+                        <h3>Ejemplos de tipos de input</h3>
+                        <div>
+                            <input type="button" value="Mibotón">
+                        </div>
+                        <!-- tipos de input -->
+                        <div>
+                            <h3>seleccioná tus preferencias</h3>
+                            <label for="check">Deporte</label>
+                            <input type="checkbox" name="check" value="deporte">
+                            <label for="check">Viajar</label>
+                            <input type="checkbox" name="check" value="viajar">
+                            <label for="check">Cantar</label>
+                            <input type="checkbox" name="check" value="cantar">
+                            <label for="check">Visitar nuevos lugares</label>
+                            <input type="checkbox" name="check" value="visitar">
+                        </div>
+                        
+                        <div>
+                            <h3>Cuál es tu favotito</h3>
+                            <label for="messi">Messi</label>
+                            <input type="radio" name="favorito" value="messi" required>
+                            <label for="dibu">dibu</label>
+                            <input type="radio" name="favorito" value="dibu" required>
+                            <label for="fideo">fideo</label>
+                            <input type="radio" name="favorito" value="fideo" required>
+                            <label for="diego">diego</label>
+                            <input type="radio" name="favorito" value="diego" required>
+
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <input type="submit" value="Registrarse">
+                    </div>
+                </form>
+            </article>
+        </section>
+    </main>
+    <footer></footer>
+    
+</body>
+</html>

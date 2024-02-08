@@ -1,0 +1,11 @@
+
+
+SI(O(Y(H146>2;K146=2);Y(H146=2;((H146*0,3)+(K146*0,7))<=4);Y(H146>2;K146<4));"recuperatorio";
+
+
+
+
+
+SI(O(Y(H145>2;K145=2);Y(H145=2;((H145*0,3)+(K145*0,7))<=4);Y(H145>2;K145<4));"recuperatorio";
+SI(Y(H146>4;L145<4);"recuperatorio";"A final"))))))
+SI(Y(H145>4;L144<4);"recuperatorio";"A final"))))))

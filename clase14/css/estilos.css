@@ -1,0 +1,49 @@
+:root{
+                
+    --bs-lime:rgb(204, 255, 0);
+    --bs-indigo:rgb(247, 0, 255) !important;
+}
+.bg-lime{
+    background-color:var(--bs-lime);
+}
+.bg-card{
+    background-color: var(--bs-indigo);
+}
+.bg-purple{
+    background-color: var(--bs-purple);
+}
+.img,
+nav,
+header{
+    border-radius: 20px 20px 0px 0px;
+}
+main{
+    background-image: url(../img/fondo.avif);
+}
+.bg-transparent{
+    background-color: transparent;
+}
+article{
+    background: linear-gradient(180deg, transparent 70%,black);
+    
+}
+body{
+    padding: 10px 40px;
+}
+
+footer, .navfooter,main{
+    border-radius: 0px 0px 20px 20px;
+}
+.carousel-inner{
+    width: 100%;
+}
+.carousel-item img{
+    width: 100%;
+    padding: 0px;
+}
+.bg-gris-claro{
+    background-color: #cfe2ff;
+}
+
+
+
