@@ -1,0 +1,30 @@
+th,td{
+    width: 150px;
+    text-align: center;
+    border:1px solid black;
+}
+table{
+    border:1px solid black;
+}
+#pseudo{
+    background-color: blueviolet;
+    color: white;
+    padding: 15px;
+    width: 30%;
+}
+#expl{
+    background-color: rgb(99, 13, 135);
+    color: white;
+    padding: 15px;
+    padding-left: 150px;
+    width: 30%;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+h2,h3{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
