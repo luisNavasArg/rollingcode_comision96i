@@ -1,181 +1,129 @@
-// alert("estamos conectados al index");
-//condicional doble
+//bucles while, do while operadores, for 
 /*
-let numero = 119;
-if(numero <= 18){
-    //ejecuta si es verdadero
-    alert("El número "+numero+" es menor de 18");
-}else{
-    // Ejecutacuando la condición es falsa
-    alert("El número "+numero+" es mayor de 18");
-}
-
-//condicional anidado
-let rol = "docentes";
-
-if (rol=="alumno") {
-    alert("Bienvenido alumno");
-}else if(rol=="docente"){
-    alert("Bienvenido docente");
-}else{
-    alert("ese rol no existe");
-}*/
-
-//rango desde 5 a 10
-/*
-let num = 0;
-
-if (num >=5) {
-    if (num <= 10) {
-        alert(" está dentro del rango");
-    }else{
-        alert("Esta fuera del rango");
-    }
+let x=0;
+while (x < 10) {
     
-}else{
-    alert("Esta fuera del rango");
+   x++ 
+   console.log(x);
 }
-*/
-// let x=20;
-/*
-if (x>=5 && x<=10) {
-    alert(" está dentro del rango");
-}else{
-    alert("Esta fuera del rango");
-}*/
-//operadores asignación = aritméticos+-/* % 
-/*
-console.log(x);
-x++;
-console.log(x);
-x--;
-console.log(x);
-let llueve=true;
-console.log(llueve);
-console.log(!llueve);
-*/
-// operadores condicionales == === < > <= >= !=
-/*
-console.log('12'!==12);
-// operadores logicos && ||
-
-let finde=false;
-let es_feriado=false;
-//or cumple una de las dos condiciones
-if (finde || es_feriado) {
-    console.log("No es laborable hoy");
-}else{
-    console.log("Es un día laborable");
-}
-// y && se tienen cumplir las dos condiciones
-
-if (!finde && !es_feriado) {
-    console.log("Es un día laborable");
-}else{
-    console.log("Es un día laborable");
-}
-let dia = prompt("Ingresa el día");
-switch (dia) {
-    case "Lunes":
-        console.log("Me levanto con un poco de fiaca");
-        break;
-    case "viernes":
-        console.log("Me levanto con muchas ganas porque viene el finde");  
-        break;
-
-    default:
-        console.log("Ese día no es valido");
-        break;
-}
-*/
-// true && true = true
-// false && true = false
-// true && false = false
-// false && false = false 
-
-// true || false = true
-// false || true = true
-// true || true = true
-// false || false = false
-
-// bucles | estructuras repetitivas
-/*
-let alumnos = [];
-alumnos[0]="Cecilia";
-alumnos[1]="Gustavo";
-alumnos[2]="Luciana";
-alumnos[3]="Alberto";
-alumnos[50]="Ángel";
-let x = 4;
-let rango = x>=4 && x<50;
-
-while (x < 50) {
-    
-    alumnos[x]=null;
-    x++;
-}
-console.log(alumnos);*/
-
-// mostrar la tabla del 8 en la consola
-/*
-let numero = prompt("Ingresa tu número para mostrar la tabla");
-let num = 1;
-
-while (num <= 10) {
-    console.log(numero+ ' X ' +num + ' = ' +num*numero);
-    num++;
-}*/
-// salida  8 x 1 = 8
-/*
-let num2 = 1;
-
+let a=20;
 do {
-    console.log(num2);
-    num2++;
-} while (num2 < 10);
+    a++ 
+   console.log(a);
+} while (a < 21);
 */
-// let numIngresado =prompt("Ingresa tu número");
-// let numeros=[];
-// for(let a=0;a <10;a++){
-//     numeros[a]=a*3;
-// }
-// numIngresado
-// console.log(numeros);
+//palabra reservada(Variableinicial;condición,incremento){ Instrucciones o sentencias}
+/*
+for(let a=0; a < 10;a++){
+    console.log(2*a);
+}
+*/
+//arrays
 
-// for (let i = 1; i < 10; i++) {
-//     console.log(numIngresado+ ' X ' +i + ' = ' +i*numIngresado);
-// }
+//palabra reservada nombre operador de asignación [valor, valor2,....]
+// let alumnos=["Alberto","Cecilia","Diego","Felipe","Guillermo"];
+// alumnos=["Lautaro"];
+// console.log(alumnos.length);
+// alumnos[alumnos.length]="Lautaro";
+// alumnos[alumnos.length]=12345;
+// console.log(alumnos);
 
-let numero = [];
-let numIngresado = "";
-while (numIngresado != '0') {
-    numIngresado = prompt("Ingresa un número");
-    console.log("La longitud es "+numero.length);
-    if (numIngresado!='0') {
-        numero[numero.length]=numIngresado;
+//el objeto
+//palabra reservada nombre operador de asignación {propiedad:valor}
+// let mouse = {color:"verde",cable:true,cantBotones:3};
+// console.log(mouse);
+// console.log(mouse.color);
+
+// alumnos.push("Luciana","Juan","Ignacio");
+/*
+let curso ={
+    nombre:"Html css y Javascript",
+    duracion:"3 meses",
+    horario:{
+        hora:"19 a 21:30",
+        dias:[
+            "Lunes",
+            "Miércoles"]
+        },
+    docentes:["Luis","Ángel"],
+    alumnos:alumnos
+    
+}
+
+for (let i = 0; i < curso.docentes.length; i++) {
+    console.log(curso.docentes[i]);   
+}
+for (let i = 0; i < curso.alumnos.length; i++) {
+    console.log(curso.alumnos[i]);   
+}
+*/
+//tenemos la cafetería y queremos mostrar los prductos en la consola
+/*
+const cafeteria = [
+    { nombre: "Café americano", categoria: "Bebida", cantidad: 20 },
+    { nombre: "Croissant", categoria: "Alimento", cantidad: 15 },
+    { nombre: "Tarta de manzana", categoria: "Postre", cantidad: 8 },
+    { nombre: "Té verde", categoria: "Bebida", cantidad: 25 },
+    { nombre: "Sandwich de pollo", categoria: "Alimento", cantidad: 10 },
+    { nombre: "Brownie", categoria: "Postre", cantidad: 12 }
+];
+
+console.log(cafeteria[0]);
+*/
+// producto tipo cantidad
+/*
+for (let i = 0; i < cafeteria.length; i++) {
+    console.log("Producto: "+ cafeteria[i].nombre +" tipo: "+cafeteria[i].categoria+" cantidad:  "+cafeteria[i].cantidad);
+    
+    
+}
+
+const productos = [
+    { nombre: "Manzanas", categoria: "Frutas", cantidad: 10 },
+    { nombre: "Leche", categoria: "Lácteos", cantidad: 2 },
+    { nombre: "Pan", categoria: "Panadería", cantidad: 5 },
+    { nombre: "Zanahorias", categoria: "Verduras", cantidad: 8 }
+];
+*/
+//crear un script para agregar más productos
+
+// productos[productos.length]={ nombre: "Bananas", categoria: "Frutas", cantidad: 38 };
+//metodo para agregar un elemento al array enla última posición
+// productos.push({ nombre: "Queso", categoria: "Lácteos", cantidad: 18 });
+//siempre usamos dentro de un array el mismo tipo de dato
+// console.log(productos);
+
+//Crear un script para guardar datos en el array productos
+//entana emergente para confirmar si seguimos agregando o no
+/*
+let continuar;
+do {
+    continuar = confirm("Pulsa aceptar para agregar o cancelar");
+    */
+// console.log(continuar);
+/*
+if (continuar) {
+    let nombre = prompt("Ingresa el nombre");
+    let categoria =prompt("Categoria");
+    let cantidad = Number(prompt("cantidad"));
+    if (nombre==null || categoria ==null || cantidad==0 || Number.isNaN(cantidad)) {
+        alert("Falta agregar alguno de los datos");
+        continuar = confirm("Pulsa aceptar para agregar o cancelar");
+    }else{
+        productos.push({nombre:nombre,categoria:categoria,cantidad:cantidad});
     }
     
 }
-console.log(numero);
+} while (continuar);
+*/
 
+// console.log(productos);
+// let num =Number(prompt("ingresa un número"));
+// console.log(num);
+// console.log();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// let num =Number(prompt("ingresa un número"));
+// alert(typeof num);
+// document.write(num);
+// alert(Number.isNaN(num));
 
