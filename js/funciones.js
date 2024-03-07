@@ -1,6 +1,7 @@
 
 //declaración de la función
 //palabra reservada function nombre(parámetros){instrucciones}
+//funciones expresadas
 function suma(num,num2) {
     let resultado=num+num2;
     
