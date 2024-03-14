@@ -1,4 +1,5 @@
 //declaramos la función declarada 
+/*
 function calculadora(ope, num, num2){
     // console.log(typeof ope,typeof num, typeof num2);
     // switch (ope) {
@@ -61,20 +62,20 @@ let alumno={
 }
 function contarPropiedades(obj) {
     return Object.keys(obj)
-}
-console.log(contarPropiedades(alumno));
-function concatenarArrays(arr,arr2) {
-    return arr.concat(arr2)
-    // return arr.push(arr2)
-}
+}*/
+// console.log(contarPropiedades(alumno));
+// function concatenarArrays(arr,arr2) {
+//     return arr.concat(arr2)
+//     // return arr.push(arr2)
+// }
 // console.log(concatenarArrays(numeros,nombres));
 
-console.log(concatenarArrays(numeros,nombres));
+// console.log(concatenarArrays(numeros,nombres));
 
 //optener la posición de algún valor
 
-console.log(nombres.indexOf('Cecilia'));
-
+// console.log(nombres.indexOf('Cecilia'));
+/*
 function eliminarRegistroArray(arr,valor) {
     //si está
     let esta = arr.includes(valor);
@@ -107,23 +108,23 @@ function esManzanas(fruta) {
 console.log(productos.find(esManzanas));
 
 let str ="Hola,cómo,están";
+*/
+// console.log("La longitud del texto es: "+str.length);
+// console.log(str.indexOf("á"));
+// console.log(str.search("o"));
+// console.log(str.split(","));
+// console.log(str.toUpperCase());
+// console.log(str.toLocaleLowerCase());
 
-console.log("La longitud del texto es: "+str.length);
-console.log(str.indexOf("á"));
-console.log(str.search("o"));
-console.log(str.split(","));
-console.log(str.toUpperCase());
-console.log(str.toLocaleLowerCase());
+console.log(saludar("Luis","Perez"));
 
+function saludar(nombre,apellido) {
+    return nombre+ " "+apellido;
+}
 
+//expresadas
 
-
-
-
-
-
-
-
-
-
-
+let despedirse = function (nombre,apellido) {
+    return "Adios¡ "+nombre+" "+apellido;
+}
+console.log(despedirse("Luis","Perez"));
