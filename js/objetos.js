@@ -119,3 +119,160 @@ console.log(docente==tutor);
 // Math , Date,RegExp
 //Objeto de errores Error
 console.log(Math.floor(Math.random()*10));
+
+//Notación Literal
+const juego={
+    
+    altura:'300px',
+    ancho:'300px',
+    personaje:[{visible:true,vidas:5,puntos:0,}],
+    enemigos:[{visible:true,animacion:true,resistencia:true}],
+    saltar:function (p) {
+        p.pos.y=+10;
+    },
+    caminar:function(p){
+        p.pos.x=+10
+    }
+}
+//Función constructora
+
+function Clientes(nombre,apellido,direccion,telefono) {
+    this.nombre=nombre;
+    this.apellido=apellido;
+    this.direccion=direccion;
+    this.telefono=telefono;
+}
+//instanciamos la función
+let carmenRamirez= new Clientes("Carmen","Ramirez","Callao 530",1170314256);
+console.log(carmenRamirez.apellido);
+
+const obj = new Object();
+
+obj.name="Juego";
+obj["numero"]=1425;
+
+console.log(obj);
+
+let juego2 = Object.create(obj);
+juego2.name="Mario ";
+juego2.puntos=1425566;
+console.log(juego2);
+
+class Vehiculo{
+    //ruedas, velocidades, volante
+    constructor(ruedas,velocidades,volante){
+        this.ruedas=ruedas;
+        this.velocidades=velocidades;
+        this.volante=volante;
+    }
+}
+
+const vehiculo = new Vehiculo(4,5,true);
+// console.log(vehiculo);
+class Auto extends Vehiculo{
+    constructor(ruedas,velocidades,volante,marca){
+        super(ruedas,velocidades,volante);
+        this.marca=marca;
+    }
+}
+let auto = new Auto(4,5,true,"Fiat");
+let auto2 = new Auto(4,5,true,"Renault");
+let auto3 = new Auto(4,5,true,"Checvolet");
+console.log(auto);
+console.log(auto2);
+
+class Moto extends Vehiculo{
+    constructor(ruedas,velocidades,volante,marca){
+        super(ruedas,velocidades,volante);
+        this.marca=marca;
+    }
+}
+let moto = new Moto(2,3,true,"Scott");
+console.log(moto);
+
+class Cafetera{
+    static id=0;
+    #azucar;
+    constructor(cafe,agua){
+        this.cafe=cafe;
+        this.agua=agua;
+        Cafetera.id=Cafetera.id+1;
+        this.id=Cafetera.id;
+        this.#azucar=2;
+    }
+    preparaCafe(){
+       
+        if (this.cafe) {
+            if (this.agua) {
+
+                return "Espere un momento su café se está preparando con "+this.#azucar+' cubos de azucar';
+            }else{
+                return "No hay agua!"
+            }
+            
+        }else{
+            return "No tiene café!"
+        }
+    }
+    agregarCafe(){
+        // this.cafe=true;
+        this.cafe=this.#cambiarValor(this.cafe);
+        return "Se está agregando el cafe"
+    }
+    agregarAgua(){
+        this.agua=true;
+        return "Se está agregando el agua"
+    }
+    agregarAzucar(){
+        this.#azucar=this.#azucar+1;
+        return "Se está agregando un cubo de azucar"
+    }
+    #cambiarValor(val){
+        return !val
+    }
+}
+let cafe = new Cafetera(true,false);
+let cafe2 = new Cafetera(false,true);
+console.log(cafe.preparaCafe());
+console.log(cafe.agregarAgua());
+console.log(cafe.agregarAzucar());
+console.log(cafe.preparaCafe());
+console.log(cafe);
+console.log(cafe2.preparaCafe());
+console.log(cafe2.agregarCafe());
+console.log(cafe2.agregarAzucar());
+console.log(cafe2.agregarAzucar());
+
+console.log(cafe2.preparaCafe());
+
+// console.log(Cafetera);
+
+class Empresa {
+    #cuil;
+    #nombre;
+    #telefono;
+    #direccion;
+    #codigoP;
+    constructor(cuil,nombre){
+        this.#cuil=cuil;
+        this.#nombre=nombre;
+
+    }
+    getCuil(){
+        return this.#cuil;
+    }
+    getNombre(){
+        return this.#nombre;
+    }
+    setCuil(cuil){
+        this.#cuil=cuil;
+    }
+    setNombre(nombre){
+        this.#nombre=nombre
+    }
+}
+let empresa= new Empresa(234565432,"Rollingcode");
+console.log(empresa.getCuil());
+empresa.setCuil(23567342);
+console.log(empresa.getCuil());
+console.log(empresa.getNombre());
