@@ -18,7 +18,7 @@ let preguntas= [
       question: "HyperText Markup Language: Define el significado y la estructura del contenido web",
       choices: ["Verdadero", "Falso"],
       answer: "Verdadero"
-    },
+    },/*
     {
       question: "Se utiliza para controlar el estilo y el diseño de las páginas web",
       choices: ["HTML", "JAVASCRIPT", "CSS", "Node"],
@@ -82,9 +82,40 @@ let preguntas= [
       question: "¿Cuál es el método que retorna la posición de la primera ocurrencia de una subcadena en un string?",
       choices: ["locate", "find", "indexOf"],
       answer: "indexOf"
-    }
+    }*/
   ]
   let pregunta_numero=0;
+
+  let modal=`   <!-- Button trigger modal -->
+  <div class="d-flex justify-content-center">
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Mostrar Resultados de las respuestas
+  </button>
+  <div>
+  <div>
+ 
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="text-center" id="exampleModalLabel">Comparación de respuestas</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <ul type="none" class="modal-b"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+        </div>
+      </div>
+    </div>
+  </div>`
+
+let answers=[];
+let answerCorrect="";
   function mezclar(array) {
     let  n = array.length-1;
     for (let i = n; i > 1; i--) {
@@ -106,18 +137,56 @@ let preguntas= [
                 <p id="question"></p>
             </div>
             <div class="col-6">
-                <h2 class="text-center bg-danger bg-opacity-25">Opciones</h2>
+            <h2 class="text-center bg-danger bg-opacity-25">Opciones</h2>
+            <form id="form">
+                
                 <ul id="choices"></ul>
-                <button onclick="siguiente()" class="btn btn-success" id="next">Siguiente</button>
-            </div>
+                <button type="submit" class="btn btn-success" id="next">Siguiente</button>
+                </form>
+                <span></span>
+                <div id="answer"></div>
+                </div>
         </div>
     </div>
     `;
+    document.querySelector("#form").addEventListener("submit",function (e) {
+        e.preventDefault();
+        
+        let question = document.querySelector("#question");
+        let input =document.querySelector("input[name=answer]:checked");
+        let answer=document.querySelector("#answer")
+        if (input!=null) {
+          pregunta_numero++;
+          answers.push({
+            question:question.innerText,
+            myAnswer:input.value,
+          answer:answer.innerText})
+          if (pregunta_numero < preguntas.length) {
+            mostrarPregunta(pregunta_numero)
+          }else{
+            
+              alert("Terminaste la prueba");
+              validarRespuestas();
+              //mostrarResultados  modal
+          }
+          
+        }else{
+          document.querySelector("span").innerHTML=`
+          <div class="m-3 text-danger">
+          Debes de elegir una opción</div>
+          `;
+        }
+
+    })
     mostrarPregunta(pregunta_numero)
  }
  function mostrarPregunta(index) {
     let question = document.querySelector("#question");
     let choices = document.querySelector("#choices");
+    answerCorrect=preguntas[index].answer;
+    let answer = document.querySelector("#answer");
+    answer.style.opacity=0;
+    answer.innerHTML=answerCorrect;
     question.innerText=`${preguntas[index].question}`;
     choices.innerHTML="";
     preguntas[index].choices.forEach(function (choice,index) {
@@ -131,23 +200,49 @@ let preguntas= [
         `
     })
  }
- function siguiente(){
-    let question = document.querySelector("#question");
-    let choices = document.querySelector("#choices");
-    console.log(question.innerHTML);
-    console.log(choices.children);
-    
+ function validarRespuestas() {
+    console.log(answers);
+    let corrects = 0;
+    let cantPreguntas = 0;
+    let messageFinal="";
+    answers.forEach((response)=>{
+      cantPreguntas++;
+      if(response.answer==response.myAnswer){
+        corrects++;
+        messageFinal+=`
+        <li class="bg-success text-white p-4 m-4">
+        ${response.question}<p>Tu respuesta: <strong> ${response.answer}</strong></p>
+        </li>
+        `;
+      }else{
+        messageFinal+=`
+        <li class="bg-danger text-white p-4 m-4">
+        ${response.question}<p>Tu respuesta: <strong> ${response.myAnswer}</strong></p>
+        <p>Respuesta correcta:<strong>${response.answer}</strong></p>
+        </li>
+        `;
+      }
+     
+    })
 
-    pregunta_numero++;
-   
-    if (pregunta_numero < preguntas.length) {
-        mostrarPregunta(pregunta_numero)
-    }else{
-        alert("Terminaste la prueba");
-        //mostrarResultados  modal
-    }
+    let body =document.body;
+    body.innerHTML=`
+    <div class="d-flex justify-content-center">
+      <div>
+      <p class="m-4 p-3 bg-danger bg-opacity-25">
+      Cantidad de preguntas: ${cantPreguntas} respuestas correctas: ${corrects}
+      </p>
+      <p class="m-4 p-3 bg-info gb-opacity-25">
+      Tu porcentaje: ${corrects*100/cantPreguntas}%
+      </p>
+      </div>
+    </div>
+    `
+    body.innerHTML+=modal;
+    document.querySelector(".modal-b").innerHTML+=messageFinal;
     
  }
+
  
 
  
