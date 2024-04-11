@@ -18,7 +18,7 @@ let preguntas= [
       question: "HyperText Markup Language: Define el significado y la estructura del contenido web",
       choices: ["Verdadero", "Falso"],
       answer: "Verdadero"
-    },/*
+    },
     {
       question: "Se utiliza para controlar el estilo y el diseño de las páginas web",
       choices: ["HTML", "JAVASCRIPT", "CSS", "Node"],
@@ -82,7 +82,7 @@ let preguntas= [
       question: "¿Cuál es el método que retorna la posición de la primera ocurrencia de una subcadena en un string?",
       choices: ["locate", "find", "indexOf"],
       answer: "indexOf"
-    }*/
+    }
   ]
   let pregunta_numero=0;
 
