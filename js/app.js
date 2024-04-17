@@ -1,122 +1,127 @@
-let dataJson = {
-  "usuarios":[
-      {
-          "nombre":"Luis Navas",
-          "email":"lpipnavas@gmail.com",
-          "clave":"123456"
-      },
-      {
-        "nombre":"Julián Alvarez",
-        "email":"julianalvarez@gmail.com",
-        "clave":"123456"
-    },
-    {
-      "nombre":"Messi",
-      "email":"messi@gmail.com",
-      "clave":"123456"
+//promesas
+// let promesa = new Promise((resolve,reject)=>{
+//   setTimeout(()=>{
+//     reject("No se cumplió la promesa");
+//   },2000)
+// })
+// console.warn(promesa);
+//Tres momentos Pending resolve y reject
+const heroesMarvel = [
+  { 
+      nombre: "Iron Man",
+      id: 1,
+      poder: "Tecnología avanzada y armadura de combate"
+  },
+  { 
+      nombre: "Spider-Man",
+      id: 2,
+      poder: "Agilidad sobrehumana y sentido arácnido"
+  },
+  { 
+      nombre: "Thor",
+      id: 3,
+      poder: "Fuerza sobrehumana, control del trueno y martillo mágico"
+  },
+  { 
+      nombre: "Hulk",
+      id: 4,
+      poder: "Fuerza descomunal y regeneración rápida"
+  },
+  { 
+      nombre: "Black Widow",
+      id: 5,
+      poder: "Maestría en combate cuerpo a cuerpo y habilidades de espionaje"
+  },
+  { 
+      nombre: "Captain America",
+      id: 6,
+      poder: "Fuerza, agilidad y habilidades de liderazgo"
+  },
+  { 
+      nombre: "Black Panther",
+      id: 7,
+      poder: "Fuerza, agilidad y habilidades de lucha mejoradas por la tecnología de Wakanda"
+  },
+  { 
+      nombre: "Doctor Strange",
+      id: 8,
+      poder: "Maestría en artes místicas y manipulación de la realidad"
+  },
+  { 
+      nombre: "Captain Marvel",
+      id: 9,
+      poder: "Vuelo, fuerza sobrehumana y energía cósmica"
+  },
+  { 
+      nombre: "Scarlet Witch",
+      id: 10,
+      poder: "Manipulación de la realidad y habilidades telequinéticas"
   }
-  ]
-}
-// console.log(dataJson.usuarios[0].email);
-// localStorage.setItem('usuarios',JSON.stringify(dataJson));
+];
 
-let vista=`
-<h1 class="bg-dark text-center text-white m-3 p-3">Localstorage y formularios</h1>
-        <div class="row">
-            <div class="col-6 d-flex justify-content-center">
-                
-            </div>
-            <div class="col-6">
-                <h2>Lista</h2>
+const buscarHeroeId=(id)=>heroesMarvel.find(heroe=>heroe.id==id);
+// console.log(buscarHeroeId(100));
 
-            </div>
-        </div>
-`;
-
-document.querySelector("#form").addEventListener("submit",function (e) {
-  e.preventDefault();
-  let email = document.querySelector("input[name=email]").value;
-  let clave = document.querySelector("input[name=clave]").value;
-
-   let data = dataJson.usuarios.find(function (usu) {
-      if (email==usu.email && clave==usu.clave) {
-        return usu
-      }
-  })
-  
-  if (data!=undefined) {
-    alert("Hola "+data.nombre+" te damos la bienvenida!");
-    let btn = document.querySelector("#btn-cerrar");
-    guardarData("usuario",data);
+const buscarHeroe=(id)=>{
+  return new Promise((resolve,reject)=>{
     setTimeout(()=>{
-      document.querySelector(".container").innerHTML+=vista;
-      btn.click();
+      const heroe = buscarHeroeId(id);
+      if (heroe) {
+        resolve(heroe)
+      }else{
+        reject("No se encontro el heroe con ese id")
+      }
     },2000)
 
-    
-  }else{
-    alert("Los datos ingresados no son correctos!");
-  }
-  
+  })
+}
+buscarHeroe(100)
+.then((response)=>console.log(response))
+.catch(error=>console.error(error));
+
+let url ="https://backend-clase.onrender.com/api/products";
+let principal = document.querySelector("#principal");
+fetch(url)
+.then(response=>response.json())
+.then(data=>{
+//capturamos el elemento del dom
+
+data.productos.forEach((producto)=>{
+  principal.innerHTML+=`
+  <li> <img src="${producto.src}">${producto.name}</li>`;
 })
-window.onload=function () {
-  if(capturarData("usuario")!=null){
-    let data = capturarData("usuario");
-    alert("Hola "+data.nombre+" te damos la bienvenida!");
-    let container = document.querySelector(".container");
-    container.innerHTML+=vista;
-    container.innerHTML+="<button onclick='cerrar()' class='btn btn-primary'>cerrar</button>"
-  }
-}
-function cerrar() {
-  window.localStorage.removeItem("usuario");
-  alert("Gracias por tu visita!");
-  document.body.innerHTML=`
-  <div class="container">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Ingresar
-        </button>
-        
+})
+.catch(error=>console.error(error))
+
+fetch("https://pokeapi.co/api/v2/pokemon/")
+.then(response=>response.json())
+.then(data=>{
+  data.results.forEach(((p,i)=>{
+    principal.innerHTML+=`
+    <div class="pokemon" id="${i+1}">
+    <h2>${p.name} </h2>
+      <button onclick="mostrar(${i+1})">${i+1}</button>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="">
-                    <h1 class="text-center" >Ingresar</h1>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button type="button" class="btn  text-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
-                </div>
-                <div class="modal-body d-flex justify-content-center">
-                    <form action=""  id="form" class="w-75 bg-dark bg-opacity-25" method="get">
-                        <div class="m-4">
-                            <label class="form-label" for="email">Email</label>
-                            <input class="form-control" name="email" type="text" id="email">
-                        </div>
-                        <div class="m-4">
-                            <label class="form-label" for="clave">Clave</label>
-                            <input class="form-control" name="clave" type="password" id="clave">
-                        </div>
-                        <div class="m-4">
-                            <button class="btn btn-dark bg-dark bg-opacity-50" type="submit">Ingresar</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button id="btn-cerrar" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-  `;
-}
-function guardarData(item,data) {
-  window.localStorage.setItem(item,JSON.stringify(data));
-}
-function capturarData(item) {
-    return JSON.parse(window.localStorage.getItem(item));
-}
+    
+    `
+  }))
+  console.log(data.results)})
+.catch(error=>console.log(error))
+ function mostrar(id) {
+    let url ="https://pokeapi.co/api/v2/pokemon/"+id;
+    fetch(url)
+    .then(respuesta=>respuesta.json())
+    .then(data=>{
+      data.abilities.forEach((a,index)=>{
+        console.log(a.ability.name);
+       
+      })
+      console.log(data.abilities)
+    })
+    .catch(error=>console.log(error))
+ }
+
+
+
+
 

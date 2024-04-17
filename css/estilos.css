@@ -1,0 +1,16 @@
+img{
+    width: 150px;
+}
+#principal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+li{
+    width: 33%;
+    
+}
+.pokemon{
+    width: 100%;
+}
