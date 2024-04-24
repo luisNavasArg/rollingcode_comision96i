@@ -48,7 +48,7 @@ function crearReserva() {
     let pasajeros = document.querySelector("#pasajeros").value;
     let inicio=document.querySelector("#EstacionInical").value;
     let fin=document.querySelector("#EstacionFinal").value;
-    console.log(pasajeros.value);
+    console.log(pasajeros);
     let rs = new Reserva("Trenes Argentinos",Number(pasajeros),Number(inicio),Number(fin));
     rs.monto=rs.capturarPrecio();
     rs.cerrado=false;
@@ -67,26 +67,61 @@ function mostrarReservas(array) {
                 <th>Desde</th>
                 <th>Hasta</th>
                 <th>Monto</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody id="cuerpo"></tbody>
     </table>
     `;
-    let cuerpo = document.querySelector("#cuerpo");
-    array.forEach((item)=>{
-        
-        cuerpo.innerHTML+=`
-        <tr>
-            <td class="${item.cerrado?"Cerrado":"abierta"}">${item.codigo}</td>
-            <td>${capturarNombre(item.estacionInicial)}</td>
-            <td>${capturarNombre(item.estacionFinal)}</td>
-            <td>${item.monto}</td>
-        </tr>
-        
-        `;
-    })
+   capturarData(array)
 
 }
+// Read
+function capturarData(params) {
+    let cuerpo = document.querySelector("#cuerpo");
+    cuerpo.innerHTML=`<span class="loader"></span>`
+    setTimeout(()=>{
+        cuerpo.innerHTML="";
+        params.forEach((item)=>{
+           
+            cuerpo.innerHTML+=`
+            <tr>
+                <td class="${item.cerrado?"cerrado":"abierta"}">${item.codigo}</td>
+                <td>${capturarNombre(item.estacionInicial)}</td>
+                <td>${capturarNombre(item.estacionFinal)}</td>
+                <td>${item.monto}</td>
+                <td><button class="btn btn-success" onclick="modificarData(${item.codigo})">Cerrar Viaje </button></td>
+                <td><button class="btn btn-danger" onclick="del(${item.codigo})">X </button></td>
+                </tr>
+            
+            `;
+        })
+    },2000)
+   
+}
+
+//Update
+function modificarData(codigo) {
+    reservas.forEach((r,i)=>{
+        if (r.codigo==codigo) {
+            reservas[i].cerrado=true;
+        }
+    })
+    capturarData(reservas)
+}
+
+//delete
+function del(codigo) {
+    let nuevaData=reservas.filter(r=>{
+        if (r.codigo!=codigo) {
+          return r  
+        }
+    })
+    reservas = nuevaData;
+    capturarData(reservas)
+}
+
 function capturarNombre(num) {
     switch (num) {
         case 1:
