@@ -4,7 +4,8 @@ const MiButton = () => {
                     color:"white",
                     padding:"20px",
                     border:"1px solid red"}}
-                    >MiButton</button>
+                    >MiButton
+    </button>
   )
 }
 
