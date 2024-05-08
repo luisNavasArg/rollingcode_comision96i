@@ -1,10 +1,13 @@
-const MiButton = () => {
+const MiButton = ({title,mostrar}) => {
   return (
+
     <button style={{backgroundColor:"black",
                     color:"white",
                     padding:"20px",
                     border:"1px solid red"}}
-                    >MiButton
+                    onClick={mostrar}
+            
+                    >{title}
     </button>
   )
 }
