@@ -1,0 +1,79 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Luis",
+      "apellido": "Navas",
+      "password": "123445"
+    }
+  ],
+  "productos": [
+    {
+      "marca": "Trek",
+      "precio": 1500,
+      "descripcion": "Ligera y rápida, perfecta para ciclismo de carretera.",
+      "imagen": "url_de_imagen_ruta.jpg",
+      "categoria": "Ruta",
+      "stock": 8,
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "nombre": "Bicicleta de Ruta",
+      "marca": "Giant",
+      "precio": 1500,
+      "descripcion": "Ligera y rápida, perfecta para ciclismo de carretera.",
+      "imagen": "url_de_imagen_ruta.jpg",
+      "categoria": "Ruta",
+      "stock": 8
+    },
+    {
+      "id": "3",
+      "nombre": "Bicicleta Eléctrica",
+      "marca": "Specialized",
+      "precio": 2500,
+      "descripcion": "Bicicleta eléctrica con asistencia al pedaleo, ideal para la ciudad.",
+      "imagen": "url_de_imagen_electrica.jpg",
+      "categoria": "Eléctrica",
+      "stock": 5
+    },
+    {
+      "id": "4",
+      "nombre": "Bicicleta de Gravel",
+      "marca": "Cannondale",
+      "precio": 1800,
+      "descripcion": "Perfecta para aventuras en caminos de grava y terrenos mixtos.",
+      "imagen": "url_de_imagen_gravel.jpg",
+      "categoria": "Gravel",
+      "stock": 7
+    },
+    {
+      "id": "5",
+      "nombre": "Bicicleta Urbana",
+      "marca": "Bianchi",
+      "precio": 900,
+      "descripcion": "Ideal para moverse por la ciudad con estilo y comodidad.",
+      "imagen": "url_de_imagen_urbana.jpg",
+      "categoria": "Urbana",
+      "stock": 15
+    },
+    {
+      "id": "332f",
+      "marca": "Nueva",
+      "precio": 15000,
+      "descripcion": "Ligera y rápida, perfecta para ciclismo de carretera.",
+      "imagen": "url_de_imagen_ruta.jpg",
+      "categoria": "Invierno",
+      "stock": 28
+    },
+    {
+      "id": "6832",
+      "marca": "Nueva",
+      "precio": 15000,
+      "descripcion": "Ligera y rápida, perfecta para ciclismo de carretera.",
+      "imagen": "url_de_imagen_ruta.jpg",
+      "categoria": "Invierno",
+      "stock": 28
+    }
+  ]
+}
