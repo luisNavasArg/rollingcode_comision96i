@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "84d2",
+      "user": "Santiago",
+      "password": "123456",
+      "email": "santiago@gmail.com"
+    }
+  ],
+  "products": [
+    {
+      "id": "0dfd",
+      "name": "Café con leche",
+      "category": "cafeteria",
+      "description": "Café con leche ",
+      "price": "1700",
+      "src": "https://www.clarin.com/img/2023/09/29/3FXDyDjlw_2000x1500__1.jpg"
+    },
+    {
+      "id": "1a60",
+      "name": "Café con leche",
+      "category": "cafeteria",
+      "description": "Café con leche ",
+      "price": "1700",
+      "src": "https://www.clarin.com/img/2023/09/29/3FXDyDjlw_2000x1500__1.jpg"
+    },
+    {
+      "id": "84be",
+      "name": "Café con leche",
+      "category": "cafeteria",
+      "description": "Café con leche ",
+      "price": "1700",
+      "src": "https://www.clarin.com/img/2023/09/29/3FXDyDjlw_2000x1500__1.jpg"
+    }
+  ]
+}

@@ -17,6 +17,10 @@ const NavbarApp = () => {
             <NavLink className='nav-link' to="/ingresar">
                 Ingresar
             </NavLink>
+            <NavLink className='nav-link' to="/admin/agregarProducto">
+                Agregar Producto
+            </NavLink>
+            
 
         </Nav>
 
