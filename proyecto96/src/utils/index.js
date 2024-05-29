@@ -29,7 +29,15 @@ export const crearProducto=async(obj)=>{
         console.log(error);
     }
 }
-
+export const capturarUnProducto=async(id)=>{
+    console.log(id);
+    try {
+        let producto = await axios.get(`${urlProductos}/${id}`);
+        return producto
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const eliminarProducto=async(id)=>{
     try {

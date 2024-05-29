@@ -1,12 +1,40 @@
 import { useForm } from "react-hook-form";
+import {useParams} from 'react-router-dom'
+import { capturarUnProducto } from '../utils'
 import '../App.css'
 import {Button, Form, FormControl,FormGroup, FormLabel, FormSelect } from 'react-bootstrap';
-const AddProduct = ({cargarData}) => {
-    const {register,handleSubmit,formState:{errors},reset}=useForm();
+import { useEffect } from "react";
+const UpdateProduct = ({updateData}) => {
+    const {register,handleSubmit,formState:{errors},reset, setValue}=useForm();
+    const {id}=useParams();
     const addItem=(obj)=>{
-        cargarData(obj);
+        updateData(id,obj);
         reset()
     }
+    const gerProduct=async(id)=>{
+   
+        try {
+            let obj = await capturarUnProducto(id)
+            let {data}=obj;
+        if (data) {
+          
+            setValue("name",data.name)
+            setValue("description",data.description)
+            setValue("price",data.price)
+            setValue("src",data.src)
+            setValue("category",data.category)
+
+
+        }
+        } catch (error) {
+            
+        }
+        
+    }
+    useEffect(() => {
+      gerProduct(id);
+    }, [])
+    
   return (
     <main className="main d-flex justify-content-around align-items-center flex-wrap">
     <Form className="w-50" onSubmit={handleSubmit(addItem)} method="POST">
@@ -83,4 +111,4 @@ const AddProduct = ({cargarData}) => {
   )
 }
 
-export default AddProduct
+export default UpdateProduct

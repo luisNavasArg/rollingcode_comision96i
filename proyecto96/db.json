@@ -9,12 +9,12 @@
   ],
   "products": [
     {
-      "id": "0dfd",
-      "name": "Café con leche",
-      "category": "cafeteria",
+      "name": "Café con leche de San Miguel",
       "description": "Café con leche ",
-      "price": "1700",
-      "src": "https://www.clarin.com/img/2023/09/29/3FXDyDjlw_2000x1500__1.jpg"
+      "price": "7000",
+      "src": "https://www.clarin.com/img/2023/09/29/3FXDyDjlw_2000x1500__1.jpg",
+      "category": "cafeteria",
+      "id": "0dfd"
     },
     {
       "id": "1a60",
@@ -31,6 +31,14 @@
       "description": "Café con leche ",
       "price": "1700",
       "src": "https://www.clarin.com/img/2023/09/29/3FXDyDjlw_2000x1500__1.jpg"
+    },
+    {
+      "id": "188f",
+      "name": "Café con medialunas",
+      "description": "Café con leche y medialunas",
+      "price": "2000",
+      "src": "https://www.cronista.com/files/image/362/362962/6148bafa0b969.jpg",
+      "category": "cafeteria"
     }
   ]
 }
