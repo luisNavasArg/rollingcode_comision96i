@@ -7,11 +7,12 @@ import Home from './views/Home';
 import About from './views/About';
 import Login from './views/Login';
 import ErrorScreen from './views/ErrorScreen';
-import {crearProducto,capturarProductos,updateProduct} from './utils/index'
+import {crearProducto,capturarProductos,updateProduct,validarUsuario,crearUsuario} from './utils/index'
 import AddProduct from './views/AddProduct';
 import Products from './views/Products';
 import DetailProduct from './views/DetailProduct';
 import UpdateProduct from './views/UpdateProduct';
+import Register from './views/Register';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
     return product
   }
   const cargarProductos=async()=>{
+    
     try {
       let products = await capturarProductos();
       return products
@@ -36,6 +38,8 @@ function App() {
           <Route path='/' element={<Products products={cargarProductos}/>}/>
           <Route path='/nosotros' element={<About/>}/>
           <Route path='/ingresar' element={<Login/>}/>
+          
+          <Route path='/registrarse' element={<Register validarUsuario={validarUsuario} crearUsuario={crearUsuario}/>}/>
           <Route path='/admin/agregarProducto' 
           element={<AddProduct cargarData={cargarData}/>}/>
           <Route path='/admin/detalleProducto/:id' 

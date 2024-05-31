@@ -1,11 +1,29 @@
 import { useForm } from "react-hook-form";
 import '../App.css'
 import {Button, Form, FormControl,FormGroup, FormLabel, FormSelect } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 const AddProduct = ({cargarData}) => {
     const {register,handleSubmit,formState:{errors},reset}=useForm();
-    const addItem=(obj)=>{
-        cargarData(obj);
-        reset()
+    const addItem=async(obj)=>{
+        console.log(obj);
+       let response = await cargarData(obj);
+        if (response) {
+                Swal.fire({
+                    title: "Se agregó el producto con éxito!",
+                    text: "Cool!",
+                    icon: "success"
+                  });
+                reset()  
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "No se pudo agregar el producto",
+                text: "Ocurrio un problema intenta más tarde!"
+              });
+        }
+        
+        
+        
     }
   return (
     <main className="main d-flex justify-content-around align-items-center flex-wrap">
@@ -16,7 +34,7 @@ const AddProduct = ({cargarData}) => {
             </Form.Label>
             <FormControl 
             type="text"
-            {...register("name",{required:"Este campo es obligatorio"})}
+            {...register("name",{required:"El nombre es obligatorio"})}
             />
             <Form.Text className="text-danger">
                 {errors.name?.message}

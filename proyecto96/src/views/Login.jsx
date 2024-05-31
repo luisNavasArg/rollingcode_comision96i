@@ -3,6 +3,7 @@ import {Button, Form } from 'react-bootstrap';
 
 function Login() {
   return (
+    <main className="main d-flex justify-content-around align-items-center flex-wrap">
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email </Form.Label>
@@ -23,6 +24,7 @@ function Login() {
         Ingresar
       </Button>
     </Form>
+    </main>
   );
 }
 

@@ -1,7 +1,5 @@
 import { useState } from "react"
 import CardApp from "../components/CardApp";
-
-
 const Products = ({products}) => {
     const [prod,setProd]=useState([]);
     
