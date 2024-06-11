@@ -1,6 +1,7 @@
 const urlUsuarios="http://localhost:3000/users";
 const urlProductos="http://localhost:3000/products";
 import axios from 'axios'
+import {compareSync} from 'bcryptjs-react'
 //CRUD
 export const capturarProductos=async()=>{
     try {
@@ -58,4 +59,21 @@ export const crearUsuario=async(obj)=>{
     } catch (error) {
         console.log(error);
     }
+}
+const traerUsuarios=async()=>{
+    try {
+        let usuarios = await axios.get(urlUsuarios);
+        console.log(usuarios);
+        return usuarios
+    } catch (error) {
+        
+    }
+}
+export const ingresoUsuario=async(obj)=>{
+    let usuario = await validarUsuario(obj.email);
+    
+     if (usuario?.email  && compareSync(obj.password,usuario.password)) {
+        return usuario
+     }
+    
 }

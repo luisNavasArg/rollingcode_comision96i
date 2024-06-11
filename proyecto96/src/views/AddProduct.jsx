@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import '../App.css'
 import {Button, Form, FormControl,FormGroup, FormLabel, FormSelect } from 'react-bootstrap';
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
+
 const AddProduct = ({cargarData}) => {
     const {register,handleSubmit,formState:{errors},reset}=useForm();
+    const navigate=useNavigate();
     const addItem=async(obj)=>{
         console.log(obj);
        let response = await cargarData(obj);

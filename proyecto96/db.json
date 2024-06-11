@@ -4,7 +4,15 @@
       "id": "84d2",
       "user": "Santiago",
       "password": "123456",
-      "email": "santiago@gmail.com"
+      "email": "santiago@gmail.com",
+      "admin": false
+    },
+    {
+      "id": "7e53",
+      "user": "Camila",
+      "password": "$2a$12$JNG5cUsrArwQbNmqdC84KuKpuFmNNhcq8FeaBS77zVvGKt/Rc.g9q",
+      "email": "camila1980@gmail.com",
+      "admin": true
     }
   ],
   "products": [
@@ -21,6 +29,14 @@
       "name": "Chocolate con pasas",
       "description": "Delicioso chocalte de cacao puro",
       "price": "7000",
+      "src": "https://acdn.mitiendanube.com/stores/002/625/145/products/pasas-choco1-d2c2ab9b7b4649b91c16793396210983-1024-1024.jpg",
+      "category": "cafeteria"
+    },
+    {
+      "id": "1059",
+      "name": "Chocolate con pasas",
+      "description": "Delicioso chocalte de cacao puro",
+      "price": "50000",
       "src": "https://acdn.mitiendanube.com/stores/002/625/145/products/pasas-choco1-d2c2ab9b7b4649b91c16793396210983-1024-1024.jpg",
       "category": "cafeteria"
     }
