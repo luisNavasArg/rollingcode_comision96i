@@ -1,0 +1,16 @@
+{
+  "courses": [
+    {
+      "nombre": "Javascript",
+      "duracion": "5 meses",
+      "cantAlumnos": 20,
+      "id": 2
+    },
+    {
+      "nombre": "Html",
+      "duracion": "4 meses",
+      "cantAlumnos": 20,
+      "id": 1
+    }
+  ]
+}
