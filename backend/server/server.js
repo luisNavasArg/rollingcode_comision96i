@@ -1,5 +1,6 @@
 const express = require("express")
-const cors = require("cors")
+const cors = require("cors");
+const dbConnection = require("../database/config");
 class Server{
     constructor(){
         this.app=express()
@@ -8,7 +9,18 @@ class Server{
         this.usersPath="/api/users";
         /*this.productsPath="/api/products";
         this.categoriesPath="/api/categories";*/
+        this.conectarDb();
+        this.middlewares();
         this.routes();
+    }
+    async conectarDb(){
+        await dbConnection();
+    }
+    middlewares(){
+        //leer json
+        this.app.use(express.json())
+        //archivos staticos
+        // this.app(express.static("public"))
     }
     routes(){
         this.app.use(this.authPath,require("../routes/auth"))
