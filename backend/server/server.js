@@ -7,8 +7,8 @@ class Server{
         this.port=8080;
         this.authPath="/api/auth";
         this.usersPath="/api/users";
-        /*this.productsPath="/api/products";
-        this.categoriesPath="/api/categories";*/
+        /*this.productsPath="/api/products";*/
+        this.categoriesPath="/api/categories";
         this.conectarDb();
         this.middlewares();
         this.routes();
@@ -25,6 +25,7 @@ class Server{
     routes(){
         this.app.use(this.authPath,require("../routes/auth"))
         this.app.use(this.usersPath,require("../routes/users"))
+        this.app.use(this.categoriesPath,require("../routes/categories"))
     }
     listen(){
         this.app.listen(this.port,()=>{
